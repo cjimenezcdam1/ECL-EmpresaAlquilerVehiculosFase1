@@ -1,3 +1,5 @@
+package alquileres.modelo;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,9 @@ import java.util.Set;
  * 
  * Los vehículos se modelan como un interface List que se instanciará como una
  * colección concreta ArrayList
+ * 
+ * @author Christian
+ * 
  */
 public class AgenciaAlquiler {
 	private String nombre; // el nombre de la agencia

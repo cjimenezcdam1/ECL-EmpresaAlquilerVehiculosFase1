@@ -1,5 +1,10 @@
+package alquileres.modelo;
+
 
 /**
+ * 
+ * @author Christian
+ * 
  * Representa a un vehículo en alquiler
  * De esta clase no se crearán instancias
  * 
@@ -15,12 +20,12 @@
  * misma matrícula
  * 
  */
-public class Vehiculo {
+public abstract class Vehiculo implements Comparable<Vehiculo>{
 	private String matricula;
 	private String marca;
 	private String modelo;
 	private double precioDia;
-
+	
 	/**
 	 * Constructor
 	 */
@@ -30,11 +35,66 @@ public class Vehiculo {
 		this.marca = marca.toUpperCase();
 		this.modelo = modelo.toUpperCase();
 		this.precioDia = precioDia;
-
+	}
+	
+	/**
+	 * @return the matricula
+	 */
+	public String getMatricula() {
+		return matricula;
 	}
 
 	/**
-	 * Redefinición de hashCode()
+	 * @param matricula the matricula to set
+	 */
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	/**
+	 * @return the marca
+	 */
+	public String getMarca() {
+		return marca;
+	}
+
+	/**
+	 * @param marca the marca to set
+	 */
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	/**
+	 * @return the modelo
+	 */
+	public String getModelo() {
+		return modelo;
+	}
+
+	/**
+	 * @param modelo the modelo to set
+	 */
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	/**
+	 * @return the precioDia
+	 */
+	public double getPrecioDia() {
+		return precioDia;
+	}
+
+	/**
+	 * @param precioDia the precioDia to set
+	 */
+	public void setPrecioDia(double precioDia) {
+		this.precioDia = precioDia;
+	}
+	
+	/**
+	 * Redefinici�n de hashCode()
 	 * 
 	 */
 	@Override

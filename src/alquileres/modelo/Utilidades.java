@@ -1,4 +1,10 @@
+package alquileres.modelo;
 
+/**
+ * 
+ * @author Christian
+ *
+ */
 
 public class Utilidades {
 
