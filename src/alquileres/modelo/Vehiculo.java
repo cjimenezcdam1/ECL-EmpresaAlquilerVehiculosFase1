@@ -92,7 +92,39 @@ public abstract class Vehiculo implements Comparable<Vehiculo>{
 	public void setPrecioDia(double precioDia) {
 		this.precioDia = precioDia;
 	}
-	
+	/**
+	 * Nos calcula el precio de alquiler en base a unos días y el precio por día del coche.
+	 */
+	public double calcularPrecioAlquiler(int dias) {
+		return dias * getPrecioDia();
+	}
+	/**
+	 * Redefinición de este método
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+		{
+		return false;
+		}
+		if (obj == this)
+		{
+		return true;
+		}
+		if (this.getClass() != obj.getClass())
+		{
+		return false;
+		}
+		Vehiculo v = (Vehiculo) obj;
+		return v.getMatricula().equals(this.getMatricula());
+	}
+	/**
+	 * Redefinición del criterio natural de comparación
+	 */
+	@Override
+	public int compareTo(Vehiculo o) {
+		return this.getMatricula().compareTo(o.getMatricula());
+	}
 	/**
 	 * Redefinición de hashCode()
 	 * 
@@ -101,5 +133,15 @@ public abstract class Vehiculo implements Comparable<Vehiculo>{
 	public int hashCode() {
 		return matricula.hashCode() * 13;
 	}
-
+	/**
+	 * Muestra la información del vehículo
+	 */
+	@Override
+	public String toString() {
+		return this.getClass().getSimpleName().toUpperCase() +
+				"\nMatrícula: " + this.getMatricula() + " | " +
+				"Marca: " + this.getMarca() + "|" +
+				"Modelo: " + this.getModelo() +
+				"\nPrecio día alquiler: " + this.getPrecioDia() + "€ | ";
+	}
 }
