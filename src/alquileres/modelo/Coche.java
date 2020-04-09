@@ -13,6 +13,7 @@ package alquileres.modelo;
 public class Coche extends Vehiculo{
 	
 	private int numPlazas;
+	public static final int INCREMENTO = 5;
 	
 	/**
 	 * Constructor de la clase Coche
@@ -38,6 +39,19 @@ public class Coche extends Vehiculo{
 	 */
 	public void setNumPlazas(int numPlazas) {
 		this.numPlazas = numPlazas;
+	}
+	
+	/**
+	 * Definición nueva del método para el cálculo del precio del alquiler de un coche
+	 */
+	@Override
+	public double calcularPrecioAlquiler(int dias) {
+		double precioSinIncremento = super.calcularPrecioAlquiler(dias);
+		if(this.getNumPlazas() > 4) {
+			double incremento = INCREMENTO * dias;
+			return precioSinIncremento + incremento;
+		}
+		return precioSinIncremento;
 	}
 
 }
