@@ -31,6 +31,20 @@ public class AgenciaAlquiler {
 	}
 
 	/**
+	 * @return the nombre
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * @param nombre the nombre to set
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	/**
 	 * añade un nuevo vehículo solo si no existe
 	 * 
 	 */
@@ -57,9 +71,9 @@ public class AgenciaAlquiler {
 		for(String dato: datos) {
 			dato = dato.trim();
 		}
-		String matricula = datos[1];
-		String marca = datos[2];
-		String modelo = datos[3];
+		String matricula = datos[1].toUpperCase();
+		String marca = datos[2].toUpperCase();
+		String modelo = datos[3].toUpperCase();
 		double precio = Double.parseDouble(datos[4]);
 		if(datos[0].equalsIgnoreCase("F")) {
 			double volumen = Double.parseDouble(datos[5]);
@@ -98,9 +112,14 @@ public class AgenciaAlquiler {
 	 */
 	@Override
 	public String toString() {
-
-		return null;
-
+		StringBuilder sb = new StringBuilder();
+		sb.append("Veh�culos en alquiler de la agencia " + this.getNombre()
+					+ "\nTotal veh�culos: " + flota.size());
+		for(Vehiculo v: flota) {
+			sb.append(v.toString() 
+					+ "-----------------------------------------------------\n");
+		}
+		return sb.toString();
 	}
 
 	/**
@@ -109,10 +128,9 @@ public class AgenciaAlquiler {
 	 * costaría alquilar cada coche el nº de días indicado * 
 	 *  
 	 */
-	public String buscarCoches() {
+	public String buscarCoches(int dias) {
 
 		return null;
-
 	}
 
 	/**
