@@ -52,9 +52,24 @@ public class AgenciaAlquiler {
 	 * Asumimos todos los datos correctos. Puede haber espacios antes y después
 	 * de cada dato
 	 */
-	private Vehiculo obtenerVehiculo() {
-
-		return null;
+	private Vehiculo obtenerVehiculo(String lineaInfo) {
+		String[] datos = lineaInfo.split(",");
+		for(String dato: datos) {
+			dato = dato.trim();
+		}
+		String matricula = datos[1];
+		String marca = datos[2];
+		String modelo = datos[3];
+		double precio = Double.parseDouble(datos[4]);
+		if(datos[0].equalsIgnoreCase("F")) {
+			double volumen = Double.parseDouble(datos[5]);
+			Furgoneta furgoneta = new Furgoneta(matricula, marca, modelo, precio, volumen);
+			return furgoneta;
+		}else{
+			int plazas = Integer.parseInt(datos[5]);
+			Coche coche = new Coche(matricula, marca, modelo, precio, plazas);
+			return coche;
+		}
 	}
 
 	/**
