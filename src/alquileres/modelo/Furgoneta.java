@@ -16,6 +16,33 @@ package alquileres.modelo;
  * @author Christian
  * 
  */
-public class Furgoneta {
+public class Furgoneta extends Vehiculo{
 
+	private double volumenCarga;
+	
+	/**
+	 * Constructor de la clase Furgoneta
+	 * @param matricula
+	 * @param marca
+	 * @param modelo
+	 * @param precioDia
+	 */
+	public Furgoneta(String matricula, String marca, String modelo, double precioDia, double volumenCarga) {
+		super(matricula, marca, modelo, precioDia);
+		this.setVolumenCarga(volumenCarga);
+	}
+
+	/**
+	 * @return the volumenCarga
+	 */
+	public double getVolumenCarga() {
+		return volumenCarga;
+	}
+
+	/**
+	 * @param volumenCarga the volumenCarga to set
+	 */
+	public void setVolumenCarga(double volumenCarga) {
+		this.volumenCarga = volumenCarga;
+	}
 }
