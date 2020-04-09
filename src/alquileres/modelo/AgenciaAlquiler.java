@@ -136,7 +136,7 @@ public class AgenciaAlquiler {
 		for(Vehiculo v: flota) {
 			if(v instanceof Coche) {
 				sb.append(v.toString()
-						+ "Coste alquiler " + dias + "días: " + v.calcularPrecioAlquiler(7)
+						+ "Coste alquiler " + dias + " días: " + v.calcularPrecioAlquiler(dias)
 						+ "\n-----------------------------------------------------\n");
 			}
 		}
