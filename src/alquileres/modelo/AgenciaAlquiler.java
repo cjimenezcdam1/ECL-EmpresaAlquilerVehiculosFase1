@@ -167,8 +167,21 @@ public class AgenciaAlquiler {
 	 * 
 	 */
 	public List<Furgoneta> furgonetasOrdenadasPorVolumen() {
-
-		return null;
+		ArrayList<Furgoneta> furgonetasPorVolumen = new ArrayList<>();
+		Iterator<Vehiculo> it = flota.iterator();
+		while(it.hasNext()) {
+			Vehiculo v = it.next();
+			if(v instanceof Furgoneta) {
+				furgonetasPorVolumen.add((Furgoneta) v);
+			}
+		}
+		furgonetasPorVolumen.sort(new Comparator<Furgoneta>()
+		{
+				public int compare(Furgoneta f1, Furgoneta f2) {
+					return Double.compare(f1.getVolumenCarga(), f2.getVolumenCarga());
+				}
+				});
+		return furgonetasPorVolumen;
 
 	}
 
