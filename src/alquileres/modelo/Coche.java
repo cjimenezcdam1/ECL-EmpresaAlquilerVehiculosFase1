@@ -13,7 +13,7 @@ package alquileres.modelo;
 public class Coche extends Vehiculo{
 	
 	private int numPlazas;
-	public static final int INCREMENTO = 5;
+	private final int INCREMENTO = 5;
 	
 	/**
 	 * Constructor de la clase Coche
