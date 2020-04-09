@@ -59,7 +59,7 @@ public class Coche extends Vehiculo{
 	 */
 	@Override
 	public String toString() {
-		return super.toString() + "Plazas: " + this.getNumPlazas();
+		return super.toString() + "Plazas: " + this.getNumPlazas() + "\n";
 	}
 
 }

@@ -29,7 +29,7 @@ public class Furgoneta extends Vehiculo{
 	 */
 	public Furgoneta(String matricula, String marca, String modelo, double precioDia, double volumenCarga) {
 		super(matricula, marca, modelo, precioDia);
-		this.setVolumenCarga(volumenCarga);
+		this.volumenCarga = volumenCarga;
 	}
 
 	/**
@@ -44,5 +44,14 @@ public class Furgoneta extends Vehiculo{
 	 */
 	public void setVolumenCarga(double volumenCarga) {
 		this.volumenCarga = volumenCarga;
+	}
+	
+	/**
+	 * Muestra los datos de una Furgoneta
+	 */
+	@Override
+	public String toString() {
+		return super.toString() 
+				+ "Volumen: " + this.getVolumenCarga() + " (m3)" + "\n";
 	}
 }
