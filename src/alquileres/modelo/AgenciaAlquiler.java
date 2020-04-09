@@ -7,6 +7,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * La clase guarda en una colección List (un ArrayList) la flota de vehículos
@@ -191,8 +193,8 @@ public class AgenciaAlquiler {
 	 * de los modelos en cada marca como valor asociado
 	 */
 	public Map<String, Set<String>> marcasConModelos() {
-
-		return null;
+		TreeMap<String, TreeSet<String>> marcasConModelos = new TreeMap<>();
+		return marcasConModelos;
 	}
 
 }
