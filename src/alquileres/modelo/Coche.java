@@ -46,12 +46,10 @@ public class Coche extends Vehiculo{
 	 */
 	@Override
 	public double calcularPrecioAlquiler(int dias) {
-		double precioSinIncremento = super.calcularPrecioAlquiler(dias);
 		if(this.getNumPlazas() > 4) {
-			double incremento = INCREMENTO * dias;
-			return precioSinIncremento + incremento;
+			return (INCREMENTO + this.getPrecioDia()) * dias;
 		}
-		return precioSinIncremento;
+		return dias * this.getPrecioDia();
 	}
 	
 	/**

@@ -19,6 +19,9 @@ package alquileres.modelo;
 public class Furgoneta extends Vehiculo{
 
 	private double volumenCarga;
+	private final int INCREMENTO1 = 10;
+	private final int INCREMENTO2 = 15;
+	private final int INCREMENTO3 = 25;
 	
 	/**
 	 * Constructor de la clase Furgoneta
@@ -44,6 +47,20 @@ public class Furgoneta extends Vehiculo{
 	 */
 	public void setVolumenCarga(double volumenCarga) {
 		this.volumenCarga = volumenCarga;
+	}
+	
+	/**
+	 * Cálculo del alquiler de una Furgoneta
+	 */
+	@Override
+	public double calcularPrecioAlquiler(int dias) {
+		if(this.getVolumenCarga() < 5) {
+			return (this.getPrecioDia() + INCREMENTO1) * dias;
+		}
+		if(this.getVolumenCarga() > 10) {
+			return (this.getPrecioDia()  + INCREMENTO3) * dias;
+		}
+		return (this.getPrecioDia()  + INCREMENTO2) * dias;
 	}
 	
 	/**
