@@ -10,6 +10,34 @@ package alquileres.modelo;
  * @author Christian
  * 
  */
-public class Coche {
+public class Coche extends Vehiculo{
+	
+	private int numPlazas;
+	
+	/**
+	 * Constructor de la clase Coche
+	 * @param matricula
+	 * @param marca
+	 * @param modelo
+	 * @param precioDia
+	 */
+	public Coche(String matricula, String marca, String modelo, double precioDia, int numPlazas) {
+		super(matricula, marca, modelo, precioDia);
+		this.numPlazas = numPlazas;
+	}
+
+	/**
+	 * @return the numPlazas
+	 */
+	public int getNumPlazas() {
+		return numPlazas;
+	}
+
+	/**
+	 * @param numPlazas the numPlazas to set
+	 */
+	public void setNumPlazas(int numPlazas) {
+		this.numPlazas = numPlazas;
+	}
 
 }
