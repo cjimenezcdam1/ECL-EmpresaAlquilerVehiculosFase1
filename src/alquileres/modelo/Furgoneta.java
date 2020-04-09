@@ -69,6 +69,6 @@ public class Furgoneta extends Vehiculo{
 	@Override
 	public String toString() {
 		return super.toString() 
-				+ "Volumen: " + this.getVolumenCarga() + " (m3)" + "\n";
+				+ "Volumen: " + this.getVolumenCarga() + " (m3)";
 	}
 }

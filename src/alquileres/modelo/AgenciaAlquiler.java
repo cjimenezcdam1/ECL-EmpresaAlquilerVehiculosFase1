@@ -2,6 +2,8 @@ package alquileres.modelo;
 
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -117,7 +119,7 @@ public class AgenciaAlquiler {
 					+ "\nTotal vehículos: " + flota.size());
 		for(Vehiculo v: flota) {
 			sb.append(v.toString() 
-					+ "-----------------------------------------------------\n");
+					+ "\n-----------------------------------------------------\n");
 		}
 		return sb.toString();
 	}
@@ -129,8 +131,16 @@ public class AgenciaAlquiler {
 	 *  
 	 */
 	public String buscarCoches(int dias) {
-
-		return null;
+		StringBuilder sb = new StringBuilder();
+		sb.append("Coches de alquiler en la agencia\n");
+		for(Vehiculo v: flota) {
+			if(v instanceof Coche) {
+				sb.append(v.toString()
+						+ "Coste alquiler " + dias + "días: " + v.calcularPrecioAlquiler(7)
+						+ "\n-----------------------------------------------------\n");
+			}
+		}
+		return sb.toString();
 	}
 
 	/**
@@ -139,8 +149,16 @@ public class AgenciaAlquiler {
 	 * 
 	 */
 	public List<Coche> cochesOrdenadosMatricula() {
-
-		return null;
+		ArrayList<Coche> cochesCuatroPlazasOrdenados = new ArrayList<>();
+		Iterator<Vehiculo> it = flota.iterator();
+		while(it.hasNext()) {
+			Vehiculo v = it.next();
+			if(v instanceof Coche && ((Coche) v).getNumPlazas() > 4) {
+				cochesCuatroPlazasOrdenados.add((Coche) v);
+			}
+		}
+		cochesCuatroPlazasOrdenados.sort(Comparator.naturalOrder());
+		return cochesCuatroPlazasOrdenados;
 	}
 
 	/**
