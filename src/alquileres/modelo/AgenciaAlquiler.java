@@ -34,8 +34,10 @@ public class AgenciaAlquiler {
 	 * añade un nuevo vehículo solo si no existe
 	 * 
 	 */
-	public void addVehiculo() {
-
+	public void addVehiculo(Vehiculo v) {
+		if(!flota.contains(v)) {
+			flota.add(v);
+		}
 	}
 
 	/**
