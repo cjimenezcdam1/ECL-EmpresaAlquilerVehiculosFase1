@@ -72,8 +72,8 @@ public class AgenciaAlquiler {
 	 */
 	private Vehiculo obtenerVehiculo(String lineaInfo) {
 		String[] datos = lineaInfo.split(",");
-		for(String dato: datos) {
-			dato = dato.trim();
+		for(int i = 0; i < datos.length; i++) {
+			datos[i] = datos[i].trim();
 		}
 		String matricula = datos[1].toUpperCase();
 		String marca = datos[2].toUpperCase();
@@ -118,7 +118,7 @@ public class AgenciaAlquiler {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Vehículos en alquiler de la agencia " + this.getNombre()
-					+ "\nTotal vehículos: " + flota.size());
+					+ "\nTotal vehículos: " + flota.size() + "\n");
 		for(Vehiculo v: flota) {
 			sb.append(v.toString() 
 					+ "\n-----------------------------------------------------\n");
@@ -138,7 +138,7 @@ public class AgenciaAlquiler {
 		for(Vehiculo v: flota) {
 			if(v instanceof Coche) {
 				sb.append(v.toString()
-						+ "Coste alquiler " + dias + " días: " + v.calcularPrecioAlquiler(dias)
+						+ "\nCoste alquiler " + dias + " días: " + v.calcularPrecioAlquiler(dias)
 						+ "\n-----------------------------------------------------\n");
 			}
 		}
@@ -180,7 +180,7 @@ public class AgenciaAlquiler {
 		furgonetasPorVolumen.sort(new Comparator<Furgoneta>()
 		{
 				public int compare(Furgoneta f1, Furgoneta f2) {
-					return Double.compare(f1.getVolumenCarga(), f2.getVolumenCarga());
+					return Double.compare(f2.getVolumenCarga(), f1.getVolumenCarga());
 				}
 				});
 		return furgonetasPorVolumen;
@@ -193,7 +193,20 @@ public class AgenciaAlquiler {
 	 * de los modelos en cada marca como valor asociado
 	 */
 	public Map<String, Set<String>> marcasConModelos() {
-		TreeMap<String, TreeSet<String>> marcasConModelos = new TreeMap<>();
+		TreeMap<String, Set<String>> marcasConModelos = new TreeMap<>();
+		Iterator<Vehiculo> it = flota.iterator();
+		while(it.hasNext()) {
+			Vehiculo v = it.next();
+			String marcaV = v.getMarca();
+			String modeloV = v.getModelo();
+			if(marcasConModelos.get(marcaV) == null) {
+				TreeSet<String> nombres = new TreeSet<>();
+				nombres.add(modeloV);
+				marcasConModelos.put(marcaV, nombres);
+			}else{
+				marcasConModelos.get(marcaV).add(modeloV);
+			}
+		}
 		return marcasConModelos;
 	}
 

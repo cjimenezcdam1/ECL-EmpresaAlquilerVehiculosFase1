@@ -138,7 +138,7 @@ public abstract class Vehiculo implements Comparable<Vehiculo>{
 	public String toString() {
 		return this.getClass().getSimpleName().toUpperCase() +
 				"\nMatrícula: " + this.getMatricula() + " | " +
-				"Marca: " + this.getMarca() + "|" +
+				"Marca: " + this.getMarca() + " | " +
 				"Modelo: " + this.getModelo() +
 				"\nPrecio día alquiler: " + this.getPrecioDia() + "€ | ";
 	}

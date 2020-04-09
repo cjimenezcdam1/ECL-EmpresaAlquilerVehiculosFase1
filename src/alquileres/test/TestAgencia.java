@@ -45,7 +45,7 @@ public class TestAgencia {
 	 */
 	public void testCochesOrdenadosMatricula() {
 		System.out.println(
-		        "Coches de m√°s de 4 plazas ordenados por matr√≠cula (de < a >)\n");
+		        "Coches de m·s de 4 plazas ordenados por matrÌcula (de < a >)\n");
 		for (Coche coche : agencia.cochesOrdenadosMatricula()) {
 			System.out.println(coche.toString());
 			System.out.println("--------------------");
@@ -73,7 +73,7 @@ public class TestAgencia {
 	 * demo marcasConModelos()
 	 */
 	public void testMarcasConModelos() {
-		System.out.println("Marcas y modelos de veh√≠culos por marca\n");
+		System.out.println("Marcas y modelos de vehÌculos por marca\n");
 		Map<String, Set<String>> marcasModelos = agencia.marcasConModelos();
 		for (Map.Entry<String, Set<String>> entrada : marcasModelos
 		        .entrySet()) {
@@ -97,14 +97,14 @@ public class TestAgencia {
 	 * inicio de la aplicaci√≥n
 	 */
 	public static void main(String[] args) {
-		if(args.length != 1){
-			System.out.println("Error en n∫ argumentos\nSintaxis: java TestAgencia <nombre-agencia>");
-		}else{
-			TestAgencia test = new TestAgencia(args[0]);
+		//if(args.length != 1){
+			//System.out.println("Error en n∫ argumentos\nSintaxis: java TestAgencia <nombre-agencia>");
+		//}else{
+			TestAgencia test = new TestAgencia("Rent-A-Car");
 			test.testBuscarCoches();
 			test.testCochesOrdenadosMatricula();
 			test.testFurgonetasOrdenadasPorVolumen();
 			test.testMarcasConModelos();
-		}
+		//}
 	}
 }
