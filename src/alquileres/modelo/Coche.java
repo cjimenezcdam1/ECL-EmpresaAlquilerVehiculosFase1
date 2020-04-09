@@ -53,5 +53,13 @@ public class Coche extends Vehiculo{
 		}
 		return precioSinIncremento;
 	}
+	
+	/**
+	 * Muestra de los datos de un coche
+	 */
+	@Override
+	public String toString() {
+		return super.toString() + "Plazas: " + this.getNumPlazas();
+	}
 
 }
